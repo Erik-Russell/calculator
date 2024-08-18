@@ -114,10 +114,30 @@ addButton.addEventListener('click', () => {
     console.log('addButton');
 })
 
+const subtractButton = document.querySelector('#subtract');
+subtractButton.addEventListener('click', () => {
+    currentFunction = 'subtract';
+    displayHistory.textContent = displayMain.textContent;
+    displayMain.textContent = '';
+    console.log('subtractButton');
+})
+
+// COMPUTE
+
 const equalsButton = document.querySelector('#equals');
 equalsButton.addEventListener('click', () => {
-    let result = add(Number(displayHistory.textContent), Number(displayMain.textContent));
-    displayHistory.textContent = displayHistory.textContent + "+" + displayMain.textContent;
+    let result = '';
+    // select operator
+    if (currentFunction === 'add') {
+        result = add(Number(displayHistory.textContent), Number(displayMain.textContent));
+        displayHistory.textContent = displayHistory.textContent + " + " + displayMain.textContent;
+    } else if (currentFunction === 'subtract') {
+        result = subtract(Number(displayHistory.textContent), Number(displayMain.textContent));
+        displayHistory.textContent = displayHistory.textContent + " - " + displayMain.textContent;
+    };
+    // add other operators here as else if's
+
+
     displayMain.textContent = result;
     console.log('equalsButton');
 })
