@@ -32,6 +32,10 @@ const percent = function (a) {
     return a * 0.01;
 }
 
+const inverse = function (a) {
+    return a * -1;
+}
+
 // display
 
 const displayMain = document.querySelector('.display-main');
@@ -116,6 +120,12 @@ const deleteButton = document.querySelector('#delete');
 deleteButton.addEventListener('click', () => {
     displayMain.textContent = displayMain.textContent.substring(0, displayMain.textContent.length - 1);
     console.log('deleteButton');
+})
+
+const inverseButton = document.querySelector('#inverse');
+inverseButton.addEventListener('click', () => {
+    displayMain.textContent = inverse(Number(displayMain.textContent));
+    console.log('inverseButton');
 })
 
 const addButton = document.querySelector('#add');
