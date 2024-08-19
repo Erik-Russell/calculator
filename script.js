@@ -105,10 +105,17 @@ clearButton.addEventListener('click', () => {
     displayMain.textContent = '';
     console.log('clearButton');
 })
+
 const clearEntryButton = document.querySelector('#clear-entry');
 clearEntryButton.addEventListener('click', () => {
     displayMain.textContent = '';
     console.log('clearEntryButton');
+})
+
+const deleteButton = document.querySelector('#delete');
+deleteButton.addEventListener('click', () => {
+    displayMain.textContent = displayMain.textContent.substring(0, displayMain.textContent.length - 1);
+    console.log('deleteButton');
 })
 
 const addButton = document.querySelector('#add');
