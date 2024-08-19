@@ -89,11 +89,11 @@ zeroButton.addEventListener('click', () => {
     displayMain.textContent = displayMain.textContent += 0;
     console.log('zeroButton');
 })
-// const decimalButton = document.querySelector('#decimal');
-// decimalButton.addEventListener('click', () => {
-//     displayMain.textContent = displayMain.textContent += 
-//     console.log('decimalButton');
-// })
+const decimalButton = document.querySelector('#decimal');
+decimalButton.addEventListener('click', () => {
+    displayMain.textContent = displayMain.textContent += '.'
+    console.log('decimalButton');
+})
 
 // function listeners
 
@@ -104,6 +104,11 @@ clearButton.addEventListener('click', () => {
     displayHistory.textContent = '';
     displayMain.textContent = '';
     console.log('clearButton');
+})
+const clearEntryButton = document.querySelector('#clear-entry');
+clearEntryButton.addEventListener('click', () => {
+    displayMain.textContent = '';
+    console.log('clearEntryButton');
 })
 
 const addButton = document.querySelector('#add');
@@ -122,6 +127,22 @@ subtractButton.addEventListener('click', () => {
     console.log('subtractButton');
 })
 
+const multiplyButton = document.querySelector('#multiply');
+multiplyButton.addEventListener('click', () => {
+    currentFunction = 'multiply';
+    displayHistory.textContent = displayMain.textContent;
+    displayMain.textContent = '';
+    console.log('multiplyButton');
+})
+
+const divideButton = document.querySelector('#divide');
+divideButton.addEventListener('click', () => {
+    currentFunction = 'divide';
+    displayHistory.textContent = displayMain.textContent;
+    displayMain.textContent = '';
+    console.log('divideButton');
+})
+
 // COMPUTE
 
 const equalsButton = document.querySelector('#equals');
@@ -134,6 +155,12 @@ equalsButton.addEventListener('click', () => {
     } else if (currentFunction === 'subtract') {
         result = subtract(Number(displayHistory.textContent), Number(displayMain.textContent));
         displayHistory.textContent = displayHistory.textContent + " - " + displayMain.textContent;
+    } else if (currentFunction === 'multiply') {
+        result = multiply(Number(displayHistory.textContent), Number(displayMain.textContent));
+        displayHistory.textContent = displayHistory.textContent + " * " + displayMain.textContent;
+    } else if (currentFunction === 'divide') {
+        result = divide(Number(displayHistory.textContent), Number(displayMain.textContent));
+        displayHistory.textContent = displayHistory.textContent + " / " + displayMain.textContent;
     };
     // add other operators here as else if's
 
