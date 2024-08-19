@@ -28,7 +28,7 @@ const root = function (a) {
     return a ** (1 / 2);
 }
 
-const percentage = function (a) {
+const percent = function (a) {
     return a * 0.01;
 }
 
@@ -143,6 +143,38 @@ divideButton.addEventListener('click', () => {
     console.log('divideButton');
 })
 
+const reciprocalButton = document.querySelector('#reciprocal');
+reciprocalButton.addEventListener('click', () => {
+    currentFunction = 'reciprocal';
+    displayHistory.textContent = displayMain.textContent;
+    displayMain.textContent = '';
+    console.log('reciprocalButton');
+})
+
+const squareButton = document.querySelector('#square');
+squareButton.addEventListener('click', () => {
+    currentFunction = 'square';
+    displayHistory.textContent = displayMain.textContent;
+    displayMain.textContent = '';
+    console.log('squareButton');
+})
+
+const rootButton = document.querySelector('#root');
+rootButton.addEventListener('click', () => {
+    currentFunction = 'root';
+    displayHistory.textContent = displayMain.textContent;
+    displayMain.textContent = '';
+    console.log('rootButton');
+})
+
+const percentButton = document.querySelector('#percent');
+percentButton.addEventListener('click', () => {
+    currentFunction = 'percent';
+    displayHistory.textContent = displayMain.textContent;
+    displayMain.textContent = '';
+    console.log('percentButton');
+})
+
 // COMPUTE
 
 const equalsButton = document.querySelector('#equals');
@@ -161,6 +193,18 @@ equalsButton.addEventListener('click', () => {
     } else if (currentFunction === 'divide') {
         result = divide(Number(displayHistory.textContent), Number(displayMain.textContent));
         displayHistory.textContent = displayHistory.textContent + " / " + displayMain.textContent;
+    } else if (currentFunction === 'square') {
+        result = square(Number(displayHistory.textContent), Number(displayMain.textContent));
+        displayHistory.textContent = displayHistory.textContent + "^2";
+    } else if (currentFunction === 'reciprocal') {
+        result = reciprocal(Number(displayHistory.textContent), Number(displayMain.textContent));
+        displayHistory.textContent = "1/" + displayHistory.textContent;
+    } else if (currentFunction === 'root') {
+        result = root(Number(displayHistory.textContent), Number(displayMain.textContent));
+        displayHistory.textContent = "sqrt(" + displayHistory.textContent + ")";
+    } else if (currentFunction === 'percent') {
+        result = percent(Number(displayHistory.textContent), Number(displayMain.textContent));
+        displayHistory.textContent = displayHistory.textContent + "%";
     };
     // add other operators here as else if's
 
