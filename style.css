@@ -6,14 +6,17 @@ html {
 }
 
 body {
+    background-color: beige;
     display: flex;
     flex-direction: column;
     max-width: 44em;
     min-width: 40em;
+    border: 2px solid gray;
 }
 
 .display-container {
     height: 4em;
+    background-color: white;
 }
 
 .display-history,
