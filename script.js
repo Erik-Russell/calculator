@@ -99,9 +99,17 @@ decimalButton.addEventListener('click', () => {
     console.log('decimalButton');
 })
 
-// function listeners
+// set empty variables
 
 let currentFunction = '';
+
+let firstValue = '';
+
+let secondValue = '';
+
+let thirdValue = '';
+
+// function listeners
 
 const clearButton = document.querySelector('#clear-all');
 clearButton.addEventListener('click', () => {
