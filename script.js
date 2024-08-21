@@ -45,8 +45,12 @@ const displayHistory = document.querySelector('.display-history')
 
 const oneButton = document.querySelector('#one');
 oneButton.addEventListener('click', () => {
-    displayMain.textContent = displayMain.textContent += 1;
-    console.log('oneButton');
+    if (operator === '') {
+        firstValue = firstValue += 1;
+    } else {
+        secondValue = secondValue += 1;
+    }
+    console.log('oneButton' + 'first:' + firstValue + 'second:' + secondValue + 'oper:' + operator);
 })
 const twoButton = document.querySelector('#two');
 twoButton.addEventListener('click', () => {
@@ -107,9 +111,18 @@ let firstValue = '';
 
 let secondValue = '';
 
-let thirdValue = '';
+let finalValue = '';
+
+// let operatorSet = false;
+
+let operator = '';
 
 // function listeners
+
+const updateDisplay = function () {
+    // whenever an operator is pressed send entered value to secondary display line with selected operation
+    displayHistory.textContent = firstValue + operator;
+}
 
 const clearButton = document.querySelector('#clear-all');
 clearButton.addEventListener('click', () => {
@@ -139,8 +152,9 @@ inverseButton.addEventListener('click', () => {
 const addButton = document.querySelector('#add');
 addButton.addEventListener('click', () => {
     currentFunction = 'add';
-    displayHistory.textContent = displayMain.textContent;
-    displayMain.textContent = '';
+    operator = ' + ';
+    // operatorSet = true;
+    updateDisplay();
     console.log('addButton');
 })
 
@@ -207,8 +221,9 @@ equalsButton.addEventListener('click', () => {
     let result = '';
     // select operator
     if (currentFunction === 'add') {
-        result = add(Number(displayHistory.textContent), Number(displayMain.textContent));
-        displayHistory.textContent = displayHistory.textContent + " + " + displayMain.textContent;
+        result = add(Number(firstValue), Number(secondValue));
+        operator = '';
+        // displayHistory.textContent = displayHistory.textContent + " + " + displayMain.textContent;
     } else if (currentFunction === 'subtract') {
         result = subtract(Number(displayHistory.textContent), Number(displayMain.textContent));
         displayHistory.textContent = displayHistory.textContent + " - " + displayMain.textContent;

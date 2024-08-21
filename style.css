@@ -15,18 +15,22 @@ body {
 }
 
 .display-container {
-    height: 4em;
+    height: 6em;
     background-color: white;
+    display: flex;
+    flex-direction: column;
 }
 
 .display-history,
 .display-main {
     text-align: right;
     font-size: large;
+    flex: 0 0 1.5em;
+    font-size: 1.5em;
 }
 
 .display-main {
-    font-size: larger;
+    font-size: 2em;
     font-weight: 800;
 }
 
